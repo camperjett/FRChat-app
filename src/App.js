@@ -73,10 +73,10 @@ function ChatRoom(){
   return(
     <>
       <main>
-        <div ref={dummy}></div>
         <div>
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg}/>)}
         </div>
+        <div ref={dummy}></div>
       </main>
       <form onSubmit={sendMessage}>
         <input value={formValue} onChange={e=>setFormValue(e.target.value)}/>
