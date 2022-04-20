@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+App deployed on netlify -> [storied-kheer-24cd34](https://storied-kheer-24cd34.netlify.app/)
 
 ## Available Scripts
 
