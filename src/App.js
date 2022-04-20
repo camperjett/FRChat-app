@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-
+        {user ? <SignOut /> : null}
       </header>
       <section>
         {user ? <ChatRoom /> : <SignIn />}
@@ -46,7 +46,7 @@ function SignIn(){
 }
 function SignOut(){
   return auth.currentUser && (
-    <button onClick={() => auth.SignOut()}>Sign Out</button>
+    <button onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
 
@@ -58,14 +58,16 @@ function ChatRoom(){
   const [formValue, setFormValue] = useState('');
   const sendMessage = async(e) => {
     e.preventDefault();
-    const {uid, photoURL} = auth.currentUser;
-    // console.log(photoURL);
-    await messageRef.add({
-      text: formValue,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      uid,
-      photoURL
-    })
+    if(formValue !== ""){
+      const {uid, photoURL} = auth.currentUser;
+      // console.log(photoURL);
+      await messageRef.add({
+        text: formValue,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        uid,
+        photoURL
+      })
+    }
     setFormValue('');
     //  to scroll into view on each sent msg
     dummy.current.scrollIntoView({behavior: 'smooth'});
