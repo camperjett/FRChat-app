@@ -87,13 +87,20 @@ function ChatRoom(){
     </>
   )
 }
-
+function prettyDate2(time) {
+  var date = new Date(parseInt(time));
+    var localeSpecificTime = date.toLocaleTimeString();
+    return localeSpecificTime.replace(/:\d+ /, ' ');
+}
 function ChatMessage(props){
-  const {text, uid, photoURL} = props.message;
+  const {text, uid, photoURL, createdAt} = props.message;
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+  // console.log(createdAt === null ? "WAIT up" : createdAt.toDateString());
+  // console.log(createdAt.toDate().toDateString());
   return (
     <div className={`message ${messageClass}`}>
       <img src={photoURL} alt="profile pic"/>
+      <p className='time-stamp'>{createdAt === null ? "..." : createdAt.toDate().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'})}</p>
       <p>{text}</p>
     </div>
   )

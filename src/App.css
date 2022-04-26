@@ -83,7 +83,8 @@ input {
 }
 
 button {
-  background-color: #282c34; /* Green */
+  background-color: #282c34;
+  /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -110,7 +111,8 @@ button:disabled {
 
 
 
-ul, li {
+ul,
+li {
   text-align: left;
   list-style: none;
 }
@@ -141,9 +143,22 @@ p {
   background: #0b93f6;
   align-self: flex-end;
 }
+
 .received p {
   background: #e5e5ea;
   color: black;
+}
+
+.time-stamp {
+  max-width: 40px;
+  max-height: 25px;
+  margin-bottom: 12px;
+  padding: 0px 1px;
+  border-radius: 2px;
+  position: relative;
+  color: white;
+  text-align: center;
+  font-size: 8px;
 }
 
 img {
